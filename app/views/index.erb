@@ -1,20 +1,45 @@
 <% if authenticated? %>
   <div class="row">
     <div class="col-xs-3 col-sm-3 col-md-4 col-lg-4">
-      <div class="panel panel-default">
+      <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">Exercises</h3>
         </div>
         <div class="panel-body">
           <ul class="list-unstyled">
-            <li>Select</li>
-            <li>Select</li>
-            <li>Select</li>
+            <% @challenges.each do |challenge| %>
+              <li>challenge.name</li>
+            <% end %>
           </ul>
         </div>
       </div>
     </div>
-    <div class="col-xs-9 col-sm-9 col-md-8 col-lg-8">I’m on the right</div>
+    <div class="col-xs-9 col-sm-9 col-md-8 col-lg-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Console</h3>
+        </div>
+        <div class="panel-body">
+         
+        </div>
+      </div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Output</h3>
+        </div>
+        <div class="panel-body">
+         
+        </div>
+      </div>
+       <div class="panel panel-default panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Messages</h3>
+        </div>
+        <div class="panel-body">
+         
+        </div>
+      </div>
+    </div>
   </div>
 <% else %>
 <div class="jumbotron">
