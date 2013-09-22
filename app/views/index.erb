@@ -1,6 +1,25 @@
 <% if authenticated? %>
-<p>Hello <%=current_user.name%>!</p>
-<a href='/sign_out'>Sign Out</a>
+  <div class="row">
+    <div class="col-xs-3 col-sm-3 col-md-4 col-lg-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Exercises</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="list-unstyled">
+            <li>Select</li>
+            <li>Select</li>
+            <li>Select</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-9 col-sm-9 col-md-8 col-lg-8">I’m on the right</div>
+  </div>
 <% else %>
-<a href='/sign_in'>Sign In</a>
+<div class="jumbotron">
+  <h1>Welcome to Enumerable Tutor!</h1>
+  <p>Increase your enumerable method-fu with this handy
+    in browser tutor</p>
+</div>
 <% end %>
