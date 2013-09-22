@@ -10,4 +10,4 @@ ENV['OAUTH_SECRET'] = # your secret
 ENV['OAUTH_REDIRECT'] = # your redirect url
 ```
 ## Heroku
-http://morning-taiga-6755.herokuapp.com/
+http://enum-tutor.herokuapp.com/
