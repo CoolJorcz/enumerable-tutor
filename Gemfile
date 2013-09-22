@@ -9,6 +9,7 @@ gem 'thin'
 
 gem 'activesupport'
 gem 'activerecord'
+gem 'pg'
 
 gem 'rake'
 

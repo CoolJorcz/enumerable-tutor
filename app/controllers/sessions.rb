@@ -10,8 +10,10 @@ end
 
 get '/auth/:provider/callback' do
   user_attributes = request.env['omniauth.auth'].info
+  puts user_attributes
   session[:user_attributes] = user_attributes
   token = request.env['omniauth.auth'].credentials
+  user = User.from_auth(user_attributes)
   session[:oauth_token] = token_as_hash(token)
   redirect to ('/')
 end
