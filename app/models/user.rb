@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
       user.socrates_id = auth.id
       user.name = auth.name
       user.email = auth.email
+      user.gravatar = auth.gravatar
       user.save!
     end
   end
