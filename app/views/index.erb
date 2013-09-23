@@ -8,21 +8,28 @@
         <div class="panel-body">
           <ul class="list-unstyled">
             <% @challenges.each do |challenge| %>
-              <li>challenge.name</li>
+              <li><%= challenge.name %></li>
             <% end %>
           </ul>
         </div>
       </div>
     </div>
-    <div class="col-xs-9 col-sm-9 col-md-8 col-lg-8">
-      <div class="panel panel-default">
+    <div class="well col-xs-9 col-sm-9 col-md-8 col-lg-8">
+      <div class="panel panel-danger">
         <div class="panel-heading">
-          <h3 class="panel-title">Console</h3>
+          <h3 class="panel-title console-header">Console</h3>
         </div>
-        <div class="panel-body">
-         
+        <div class="panel-body" id="editor-body">
+        <div id="editor">some text</div>
+        <script src="js/src/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+            var editor = ace.edit("editor");
+            editor.getSession().setMode("ace/mode/ruby");
+            editor.setTheme("ace/theme/vibrant_ink");
+        </script>
         </div>
       </div>
+      <button class="btn btn-large btn-info">Run it!</button>
       <div class="panel panel-info">
         <div class="panel-heading">
           <h3 class="panel-title">Output</h3>
