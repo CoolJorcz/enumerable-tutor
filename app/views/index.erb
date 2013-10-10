@@ -1,4 +1,4 @@
-<% if authenticated? %>
+<% #if authenticated? %>
   <div class="row">
     <div class="col-xs-3 col-sm-3 col-md-4 col-lg-4">
       <div class="panel panel-primary">
@@ -8,50 +8,24 @@
         <div class="panel-body">
           <ul class="list-unstyled">
             <% @challenges.each do |challenge| %>
-              <li><%= challenge.name %></li>
+              <li class="challenge-list">
+                <a href='/<%= challenge.id %>' class="challenge-list"><%= challenge.name %>
+                </a>
+              </li>
             <% end %>
           </ul>
         </div>
       </div>
     </div>
-    <div class="well col-xs-9 col-sm-9 col-md-8 col-lg-8">
-      <div class="panel panel-danger">
-        <div class="panel-heading">
-          <h3 class="panel-title console-header">Console</h3>
-        </div>
-        <div class="panel-body" id="editor-body">
-        <div id="editor">some text</div>
-        <script src="js/src/ace.js" type="text/javascript" charset="utf-8"></script>
-        <script>
-            var editor = ace.edit("editor");
-            editor.getSession().setMode("ace/mode/ruby");
-            editor.setTheme("ace/theme/vibrant_ink");
-        </script>
-        </div>
-      </div>
-      <button class="btn btn-large btn-info">Run it!</button>
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title">Output</h3>
-        </div>
-        <div class="panel-body">
-         
-        </div>
-      </div>
-       <div class="panel panel-default panel-success">
-        <div class="panel-heading">
-          <h3 class="panel-title">Messages</h3>
-        </div>
-        <div class="panel-body">
-         
-        </div>
-      </div>
+    <%= erb :_challenge, layout: false %>
     </div>
   </div>
-<% else %>
-<div class="jumbotron">
+
+
+<% #else %>
+<!-- <div class="jumbotron">
   <h1>Welcome to Enumerable Tutor!</h1>
   <p>Increase your enumerable method-fu with this handy
     in browser tutor</p>
-</div>
-<% end %>
+</div> -->
+<% #end %>

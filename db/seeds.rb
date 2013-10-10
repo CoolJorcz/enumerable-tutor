@@ -1,4 +1,3 @@
-Challenge.create(name: "Who is John Galt?", problem_statement: "You will never answer this", challenge_order: 3)
 Challenge.create(name: "Using Map Method", problem_statement: "Given Array: [1,2,3,4]\nReturn a new array" +
   "in which each element in the new array is one greater than it was in the initial array.",
  challenge_order: 1)

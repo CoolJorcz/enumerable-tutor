@@ -1,17 +1,19 @@
-get '/' do
+get '/:id' do
   @challenges = Challenge.order('challenge_order')
+  @current_challenge = Challenge.find(params[:id])
   erb :index
 end
 
 
 
+
 ############ POST ############
 
-post '/challenge/:challenge_id' do
-  @challenge = Challenge.find(params[:challenge_id])
-  answer = Attempt.create(answer_text: params[:answer])
-  @user = current_user
-  if  answer == passed?
-    redirect_to "/challenge/#{@challenge.order + 1}"
+post'/:id' do
+  @challenge = Challenge.find(params[:id])
+  answer = params[:answer]
+  @output = eval answer
+  if request.xhr?
+    erb :_output, layout: false
   end
 end
