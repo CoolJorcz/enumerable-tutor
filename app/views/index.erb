@@ -1,4 +1,4 @@
-<% #if authenticated? %>
+<% if authenticated? %>
   <div class="row">
     <div class="col-xs-3 col-sm-3 col-md-4 col-lg-4">
       <div class="panel panel-primary">
@@ -29,10 +29,10 @@
   </div>
 
 
-<% #else %>
-<!-- <div class="jumbotron">
+<% else %>
+<div class="jumbotron">
   <h1>Welcome to Enumerable Tutor!</h1>
   <p>Increase your enumerable method-fu with this handy
     in browser tutor</p>
-</div> -->
-<% #end %>
+</div>
+<% end %>

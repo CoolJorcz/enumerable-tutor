@@ -1,6 +1,6 @@
 helpers do
   def authenticated?
-    !session[:oauth_token].nil?
+    !session[:user_id].nil?
   end
 
   def current_user
