@@ -15,7 +15,11 @@ end
 get '/challenges/:id' do
   @challenges = Challenge.order('challenge_order')
   @current_challenge = Challenge.find_by_id(params[:id])
-  erb :index
+  if request.xhr?
+    erb :_challenge, layout: false
+  else
+    erb :index
+  end
 end
 
 
@@ -37,9 +41,9 @@ post'/challenges/:id' do
   @challenge = Challenge.find(params[:id])
   input = params[:answer]
   @user_output = eval input
-  @attempt = Attempt.create(:attempt_text => input, passed: @user_output.to_s == @challenge.expected_output)
-
-  
+  rput = "Something went wrong" 
+  expected_output = eval @challenge.expected_output 
+  @attempt = Attempt.create(:attempt_text => input, passed: @user_output == expected_output)
   if request.xhr?
     erb :_output, layout: false
   end
