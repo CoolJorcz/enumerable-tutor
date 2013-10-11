@@ -6,17 +6,22 @@
           <h3 class="panel-title">Exercises</h3>
         </div>
         <div class="panel-body">
-          <ul class="list-unstyled">
+          <div class="list-group">
             <% @challenges.each do |challenge| %>
-              <li class="challenge-list">
-                <a href='/<%= challenge.id %>' class="challenge-list"><%= challenge.name %>
+                <a class="list-group-item" href='/challenges/<%= challenge.id %>' class="challenge-list"><%= challenge.name %>
                 </a>
               </li>
             <% end %>
-          </ul>
+          </div>
         </div>
       </div>
     </div>
+    <nav id = "challenge-top" class="col-xs-9 col-sm-9 col-md-8 col-lg-8">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#">Challenge</a></li>
+        <li><a href="#">Your Attemtps</a></li>
+     </ul>
+   </nav>
     <%= erb :_challenge, layout: false %>
     </div>
   </div>

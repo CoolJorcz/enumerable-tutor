@@ -1,0 +1,37 @@
+<div class="well col-xs-9 col-sm-9 col-md-8 col-lg-8">
+  <form action="/challenges" method="POST" role="form">
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input name="challenge[name]" type="text" class="form-control" id="name" placeholder="Each with index">
+    </div>
+
+    <div class="form-group">
+      <label for="problem">Problem Statement</label>
+      <textarea name="challenge[problem_statement]" class="form-control" id="problem" 
+      placeholder="Replace the elements at indicies 1 and 3 with 'apple'" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="expected">Given data</label>
+      <p class="help-block">Enter the array or hash you wish the user to work with. This line will be injected to the
+      code editor as it is , so assigning it to a variable with a descriptive name is not a bad idea</p>
+      <input name="challenge[initial_data]" type="text" class="form-control" id="expected" placeholder="fruit = ['mango', 'banana', 'strawberry', 'pear']">
+    </div>
+
+    <div class="form-group">
+      <label for="expected">Expected Output</label>
+      <p class="help-block">Run code in irb and copy the return value here.</p>
+      <input name="challenge[expected_output]" type="text" class="form-control" id="expected" placeholder="[1, 4, 9, 16]">
+    </div>
+
+    <div class="form-group">
+      <label for="expected">Method</label>
+      <p class="help-block">Enter the name of the method you expect to be used so we can 
+        scrape the ruby docs for you. Method should be named in snakecase, question marks must be replaced by -3F eg. all-3F</p>
+      <input name="method" type="text" class="form-control" id="expected" placeholder="each_with_index">
+    </div>
+        
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>

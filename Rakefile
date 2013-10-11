@@ -86,6 +86,7 @@ namespace :generate do
 end
 
 namespace :db do
+  task :fuckit => ["db:drop", "db:create", "db:migrate", "db:seed"]
   desc "Create the database at #{DB_NAME}"
   task :create do
     puts "Creating database #{DB_NAME} if it doesn't exist..."

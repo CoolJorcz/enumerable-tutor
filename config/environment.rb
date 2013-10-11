@@ -10,7 +10,7 @@ require 'rubygems'
 
 require 'uri'
 require 'pathname'
-
+require 'nokogiri'
 require 'active_record'
 require 'logger'
 require 'oauth2'
@@ -34,3 +34,4 @@ Dir[APP_ROOT.join('app', 'models', '*.rb')].each { |file| require file }
 Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 require APP_ROOT.join('config', 'database')
+require APP_ROOT.join('db', 'rubydocscraper.rb')

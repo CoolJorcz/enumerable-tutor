@@ -1,0 +1,34 @@
+<div id = "current-challenge" class="col-xs-9 col-sm-9 col-md-8 col-lg-8">
+  <div id="challenge-header">
+    <a href="#showdoc">
+    <span id="doc-click">Documentation</span>
+  </a>
+    <span class="problem-statement"><%= @current_challenge.problem_statement %></span>
+  </div>
+  <div id="docs">
+   <%= erb :_doc, layout: false %>
+   </div>
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title console-header">Console</h3>
+      </div>
+        <div class="panel-body" id="editor-body">
+          <div id="editor"><%= @current_challenge.initial_data %></div>
+            <script src="/js/src/ace.js" type="text/javascript" charset="utf-8"></script>
+            <script>
+              var editor = ace.edit("editor");
+              editor.getSession().setMode("ace/mode/ruby");
+              editor.setTheme("ace/theme/vibrant_ink");
+            </script>
+          </div>
+        </div>
+        <button class="btn btn-large btn-primary" id="run">Run it!</button>
+        <div id="output-wrapper" class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">Output</h3>
+        </div>
+        <div class="panel-body" id="output">
+           
+        </div>
+        </div>
+
