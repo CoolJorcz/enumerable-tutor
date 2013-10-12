@@ -2,7 +2,7 @@ get '/challenges/new' do
   erb :new_challenge
 end
 
-get '/challenges' do
+get '/' do
   redirect to '/challenges/1'
 end
 
@@ -40,7 +40,13 @@ end
 post'/challenges/:id' do
   @challenge = Challenge.find(params[:id])
   input = params[:answer]
-  @user_output = eval input
+  
+  begin
+    @user_output = eval input
+  rescue Exception => e
+    @user_output = e.message
+  end
+
   expected_output = eval @challenge.expected_output 
   @attempt = Attempt.create(:attempt_text => input, passed: @user_output == expected_output)
   
