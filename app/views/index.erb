@@ -18,15 +18,20 @@
     </div>
     <nav id = "challenge-top" class="col-xs-9 col-sm-9 col-md-8 col-lg-8">
       <ul class="nav nav-tabs">
-        <li class="active"><a href="#">Challenge</a></li>
-        <li><a href="#">Your Attemtps</a></li>
+        <li class="active" id="challenge"><a href="#">Challenge</a></li>
+        <li><a href="#" id="attempts">Your Attemtps</a></li>
      </ul>
    </nav>
-   <div id = "current-challenge" class="col-xs-9 col-sm-9 col-md-8 col-lg-8">
-    <%= erb :_challenge, layout: false %>
+   <div id="challenge-area" class="col-xs-9 col-sm-9 col-md-8 col-lg-8">
+     <div id = "current-challenge" class="col-xs-9 col-sm-9 col-md-12 col-lg-12">
+      <%= erb :_challenge, layout: false %>
+      </div>
     </div>
-  </div>
-  </div>
+      <div id = "current-challenge-attempts" class="col-xs-9 col-sm-9 col-md-12 col-lg-12">
+        <%= erb :_current_challenge_attempts %>
+      </div>
+    </div>
+ 
 
 
 <% #else %>

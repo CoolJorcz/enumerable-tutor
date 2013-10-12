@@ -9,12 +9,27 @@
   padding: 0;
 }
 
-nav#challenge-top{
+#challenge-area:before,
+#challenge-area:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+#challenge-area:after {
+    clear: both;
+}
+
+nav#challenge-top {
   padding:0;
 }
 
+#challenge-area {
+  padding:0;
+}
 
-div#current-challenge {
+#current-challenge {
+  display:block;
+  margin-left:0;
   border-left:1px solid #dddddd;
   border-right:1px solid #dddddd;
   border-bottom:1px solid #dddddd;

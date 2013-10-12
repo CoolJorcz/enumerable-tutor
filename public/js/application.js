@@ -11,4 +11,10 @@ $(document).ready(function() {
   $(document).on('click', '#doc-click', function(){
     $("#docs").slideToggle();
   })
+
+  $(".nav-tabs li").click(function(){
+    $(".nav-tabs .active").removeClass("active");
+    $(this).addClass("active");
+    
+  })
 });

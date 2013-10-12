@@ -15,6 +15,8 @@ end
 get '/challenges/:id' do
   @challenges = Challenge.order('challenge_order')
   @current_challenge = Challenge.find_by_id(params[:id])
+  @current_user = User.find_by_id(session[:user_id])
+  
   if request.xhr?
     erb :_challenge, layout: false
   else
@@ -38,6 +40,7 @@ post '/challenges' do
 end
 
 post'/challenges/:id' do
+  @current_user = User.find_by_id(session[:user_id])
   @challenge = Challenge.find(params[:id])
   input = params[:answer]
   
@@ -49,6 +52,9 @@ post'/challenges/:id' do
 
   expected_output = eval @challenge.expected_output 
   @attempt = Attempt.create(:attempt_text => input, passed: @user_output == expected_output)
+
+  
+
   
   if request.xhr?
     erb :_output, layout: false

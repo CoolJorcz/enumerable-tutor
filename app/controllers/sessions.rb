@@ -17,7 +17,7 @@ post '/test_login' do
   @user = User.find_by_email(params[:email])
   session[:user_id] = @user.id
   session[:user_attributes] = @user.attributes
-  redirect to '/challenges'
+  redirect to '/'
 end
 
 get '/auth/:provider/callback' do
