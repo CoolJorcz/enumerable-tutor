@@ -13,7 +13,6 @@ get '/test_login' do
 end
 
 post '/test_login' do
-  p params
   @user = User.find_by_email(params[:email])
   session[:user_id] = @user.id
   session[:user_attributes] = @user.attributes

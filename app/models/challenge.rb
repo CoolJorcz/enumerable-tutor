@@ -7,13 +7,14 @@ class Challenge < ActiveRecord::Base
 
   validates :name, presence: true
   validates :problem_statement, presence:true
-  validate :check_given_data
+  validate :check_initial_data
   validate :check_expected_output
 
-  def check_given_data
+  def check_initial_data
     begin
-      eval given_data
+      eval initial_data
     rescue Exception => e
+      p e
       errors.add(:given_data,"Doesn't evaluate to a ruby object")
     end
   end

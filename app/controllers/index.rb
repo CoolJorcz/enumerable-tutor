@@ -52,8 +52,9 @@ post'/challenges/:id' do
 
   expected_output = eval @challenge.expected_output 
   @attempt = Attempt.create(:attempt_text => input, passed: @user_output == expected_output)
-
   
+  
+  current_user.attempts << @attempt
 
   
   if request.xhr?
