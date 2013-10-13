@@ -25,16 +25,26 @@ nav#challenge-top {
 
 #challenge-area {
   padding:0;
-}
-
-#current-challenge {
-  display:block;
   margin-left:0;
   border-left:1px solid #dddddd;
   border-right:1px solid #dddddd;
   border-bottom:1px solid #dddddd;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+}
+
+
+#current-challenge-attempts {
+  display:none;
+}
+
+.attempt-list {
+  margin-top:10px;
+  padding-left: 10px;
+}
+
+.attempt-list-item {
+  list-style-type: none;
 }
 div#output-wrapper {
   margin-top: 20px;

@@ -1,5 +1,6 @@
 class Attempt < ActiveRecord::Base
   validates :attempt_text, presence: true
   
-  belongs_to :user_challenge_attempt
+  belongs_to :challenge
+  belongs_to :user
 end

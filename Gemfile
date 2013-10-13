@@ -9,11 +9,10 @@ gem 'thin'
 
 gem 'nokogiri'
 
-gem 'activesupport'
 gem 'activerecord'
 gem 'pg'
-
 gem 'rake'
+gem 'coderay'
 
 gem 'shotgun'
 gem 'oauth2', '~>0.8.0'

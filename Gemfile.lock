@@ -15,6 +15,7 @@ GEM
     arel (3.0.2)
     backports (2.6.1)
     builder (3.0.4)
+    coderay (1.0.9)
     daemons (1.1.9)
     diff-lcs (1.1.3)
     eventmachine (1.0.0)
@@ -88,7 +89,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
-  activesupport
+  coderay
   faker
   json
   nokogiri

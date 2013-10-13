@@ -1,0 +1,13 @@
+<ul class="attempt-list">
+  <% current_user.attempts.where(:challenge_id => @current_challenge.id).each do |attempt| %>
+
+  <li class="attempt-list-item">
+    <!-- time_ago_in_words would be great, need rails for that -->
+
+    <%= CodeRay.scan(attempt.attempt_text, :ruby).div %>
+  
+  </li>
+
+  <% end %>
+
+</ul>

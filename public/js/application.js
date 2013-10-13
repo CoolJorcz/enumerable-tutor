@@ -12,9 +12,17 @@ $(document).ready(function() {
     $("#docs").slideToggle();
   })
 
-  $(".nav-tabs li").click(function(){
+  $(".nav-tabs #challenge").click(function(){
     $(".nav-tabs .active").removeClass("active");
     $(this).addClass("active");
-    
+    $("#current-challenge-attempts").hide();
+    $("#current-challenge").show();
+  })
+
+  $(".nav-tabs #attempts").click(function(){
+    $(".nav-tabs .active").removeClass("active");
+    $(this).addClass("active");
+    $("#current-challenge").hide();
+    $("#current-challenge-attempts").show();
   })
 });
