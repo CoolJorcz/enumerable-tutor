@@ -15,8 +15,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def completed?(input_challenge)
-    completed_challenges.include?(input_challenge)
+  def completed?(challenge)
+    completed_challenges.include?(challenge)
   end
 
   def progress

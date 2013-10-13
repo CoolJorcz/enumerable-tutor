@@ -1,16 +1,23 @@
+
 get '/challenges/new' do
   erb :new_challenge
 end
+
+
 
 get '/' do
   redirect to '/challenges/1'
 end
 
+
+
 get '/challenges/:id/edit' do
-  @current_challenge = Challenge.find(params[:id])
+  @challenge = Challenge.find(params[:id])
 
   erb :edit_challenge
 end
+
+
 
 get '/challenges/:id' do
   @challenges = Challenge.order('challenge_order')
@@ -30,20 +37,27 @@ end
 ############ POST ############
 
 post '/challenges' do
-  new_challenge = Challenge.create(params[:challenge])
-  if new_challenge.valid?
-    new_challenge.hint = Hint.create(method: params[:method])
-    redirect to "/challenges/#{new_challenge.id}"
+  p params
+  @challenge = Challenge.create(params[:challenge])
+  @challenge.hint = Hint.create(method: params[:method]) unless params[:method].blank?
+  
+  if @challenge.valid?
+  
+    redirect to "/challenges/#{@challenge.id}"
+  
   else
-    redirect to '/challenges/new'
+    
+    erb :edit_challenge
+  
   end
 end
+
+
 
 post'/challenges/:id' do
   @challenges = Challenge.all
   @current_challenge = Challenge.find(params[:id])
   input = params[:answer]
-  p params
   
   begin
     @user_output = eval input
@@ -60,4 +74,15 @@ post'/challenges/:id' do
   
   erb :index
   
+end
+
+
+post '/challenges/:id/edit' do
+  @challenge = Challenge.find(params[:id])
+  
+  @challenge.update_attributes(params[:challenge])
+
+  @challenge.hint = Hint.create(method: params[:method]) unless params[:method].blank?
+
+  redirect to "/challenges/#{@challenge.id}"
 end

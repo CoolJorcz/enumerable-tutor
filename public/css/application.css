@@ -33,6 +33,11 @@ nav#challenge-top {
   border-bottom-left-radius: 3px;
 }
 
+#output pre {
+  background-color:#FFFFFF;
+  border: none;
+}
+
 
 #current-challenge-attempts {
   display:none;
@@ -58,6 +63,11 @@ li.challenge-list{
   border-radius: 3px;
   border: 1px solid #999;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+.list-group-item.active {
+  background-color: #f1f1f1;
+  border-color: #dddddd;
 }
 
 li.challenge-list:hover{

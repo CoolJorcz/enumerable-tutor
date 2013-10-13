@@ -1,9 +1,8 @@
-$(document).ready(function() {
-  $(document).on("click", "#run", function(event){
-    var data = {answer: editor.getValue()};
-    var currentUrl = $(location).attr('href');
-    $.post(currentUrl, data);
-    
+$(document).ready( function() {
+  $('#run-code').on("click",'#run', function(event){
+    event.preventDefault();
+    $('#user-code').val(editor.getValue());
+    $("#run-code").submit();
   })
 
   $(document).on('click', '#doc-click', function(){

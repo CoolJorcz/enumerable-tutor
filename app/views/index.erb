@@ -15,7 +15,7 @@
          </div>
           <div class="list-group" id="challenge-list">
                <% @challenges.each do |challenge| %>
-                <a class="list-group-item" id="<%= challenge.id %>" href='/challenges/<%= challenge.id %>' class="challenge-list"><%= challenge.name %>
+                <a class="list-group-item <%= "active" if @current_challenge.id == challenge.id %>"    href='/challenges/<%= challenge.id %>' ><%= challenge.name %>
                   <% if current_user.completed?(challenge) %>
                 <span class="glyphicon glyphicon-ok"></span>
                   <% end %>
@@ -34,12 +34,11 @@
    <div id="challenge-area" class="col-xs-9 col-sm-9 col-md-8 col-lg-8">
      <div id = "current-challenge" class="col-xs-9 col-sm-9 col-md-12 col-lg-12">
       <%= erb :_challenge, layout: false %>
-      </div>
-    </div>
+     </div>
       <div id = "current-challenge-attempts" class="col-xs-9 col-sm-9 col-md-12 col-lg-12">
-        <%= erb :_current_challenge_attempts %>
-      </div>
-    </div>
+        <%= erb :_current_challenge_attempts, layout: false %>
+     </div>
+   </div>
  
 
 
