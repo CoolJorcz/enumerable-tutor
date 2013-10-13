@@ -6,7 +6,7 @@
     <span class="problem-statement"><%= @current_challenge.problem_statement %></span>
   </div>
   <div id="docs">
-   <%= erb :_doc, layout: false %>
+   <%= @current_challenge.hint.html %>
    </div>
     <div class="panel panel-danger">
       <div class="panel-heading">
@@ -28,6 +28,10 @@
             <h3 class="panel-title">Output</h3>
         </div>
         <div class="panel-body" id="output">
-           
+           <% if @user_output %>
+              <span>Expected: <%= @current_challenge.expected_output %></span>
+              <span>Got: <%= @user_output %></span>
+          <% end %>
+
         </div>
 

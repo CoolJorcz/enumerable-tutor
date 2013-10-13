@@ -1,11 +1,9 @@
 $(document).ready(function() {
   $(document).on("click", "#run", function(event){
-    event.preventDefault
     var data = {answer: editor.getValue()};
     var currentUrl = $(location).attr('href');
-    $.post(currentUrl, data, function(response){
-      $('#output').html(response);
-    })
+    $.post(currentUrl, data);
+    
   })
 
   $(document).on('click', '#doc-click', function(){

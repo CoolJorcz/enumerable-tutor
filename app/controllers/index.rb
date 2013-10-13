@@ -40,8 +40,10 @@ post '/challenges' do
 end
 
 post'/challenges/:id' do
-  @challenge = Challenge.find(params[:id])
+  @challenges = Challenge.all
+  @current_challenge = Challenge.find(params[:id])
   input = params[:answer]
+  p params
   
   begin
     @user_output = eval input
@@ -49,14 +51,13 @@ post'/challenges/:id' do
     @user_output = e.message
   end
 
-  expected_output = eval @challenge.expected_output 
+  expected_output = eval @current_challenge.expected_output 
   @attempt = Attempt.create(:attempt_text => input, passed: (@user_output == expected_output))
 
 
   current_user.attempts << @attempt
-  @challenge.attempts << @attempt
+  @current_challenge.attempts << @attempt
   
-  if request.xhr?
-    erb :_output, layout: false
-  end
+  erb :index
+  
 end
