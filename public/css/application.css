@@ -33,11 +33,21 @@ nav#challenge-top {
   border-bottom-left-radius: 3px;
 }
 
+#output {
+  height:50px;
+  background-color: #141414;
+  color: #fefefe;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px; 
+}
+
 #output pre {
-  background-color:#FFFFFF;
   border: none;
 }
 
+#output p {
+  letter-spacing: 1px;
+}
 
 #current-challenge-attempts {
   display:none;
@@ -98,13 +108,12 @@ span#doc-click{
 
 #challenge-header {
   position:relative;
-  margin:0 0 30px 0; 
+  margin:30px 0; 
 }
 
 span.problem-statement {
   position:relative;
   font-size: 16px;
-  top:10px;
   color: #444;
 }
 
@@ -125,26 +134,9 @@ background: url(http://ruby-doc.org/images/brick.png) no-repeat left bottom;
   font-size: 0.9em;
 }
 
-span#doc-click {
-  float:right;
-  margin-top:12px;
-}
+/*.create {
+  margin-bottom: 20px;
+}*/
 
-pre.ruby {
-  background: #303030;
-  color: #fff;
-  font-family: monospace;
-  font-size: 0.75em;
-}
-/* @group Ruby keyword styles */
-.ruby-constant   { color: #7fffd4; background: transparent; }
-.ruby-keyword    { color: #00ffff; background: transparent; }
-.ruby-ivar       { color: #eedd82; background: transparent; }
-.ruby-operator   { color: #00ffee; background: transparent; }
-.ruby-identifier { color: #ffdead; background: transparent; }
-.ruby-node       { color: #ffa07a; background: transparent; }
-._ruby-comment    { color: #b22222; font-weight: bold; background: transparent; }
-.ruby-regexp     { color: #ffa07a; background: transparent; }
-.ruby-value      { color: #7fffd4; background: transparent; }
 
 

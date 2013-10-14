@@ -1,15 +1,11 @@
-
-get '/challenges/new' do
-  erb :new_challenge
-end
-
-
-
 get '/' do
   redirect to '/challenges/1'
 end
 
 
+get '/challenges/new' do
+  erb :new_challenge
+end
 
 get '/challenges/:id/edit' do
   @challenge = Challenge.find(params[:id])
@@ -24,26 +20,25 @@ get '/challenges/:id' do
   @current_challenge = Challenge.find_by_id(params[:id])
   @current_user = User.find_by_id(session[:user_id])
   
-  if request.xhr?
-    erb :_challenge, layout: false
-  else
-    erb :index
-  end
+  erb :index
 end
 
+get '/admin' do
+  @challenges = Challenge.order('challenge_order')
+  erb :admin
+end
 
 
 
 ############ POST ############
 
 post '/challenges' do
-  p params
   @challenge = Challenge.create(params[:challenge])
   @challenge.hint = Hint.create(method: params[:method]) unless params[:method].blank?
   
   if @challenge.valid?
   
-    redirect to "/challenges/#{@challenge.id}"
+    redirect to "/admin"
   
   else
     
@@ -84,5 +79,13 @@ post '/challenges/:id/edit' do
 
   @challenge.hint = Hint.create(method: params[:method]) unless params[:method].blank?
 
-  redirect to "/challenges/#{@challenge.id}"
+  if @challenge.valid?
+  
+    redirect to "/admin"
+  
+  else
+    
+    erb :edit_challenge
+  
+  end
 end

@@ -10,6 +10,10 @@ class Challenge < ActiveRecord::Base
   validate :check_initial_data
   validate :check_expected_output
 
+  def passed_percentage
+    ((attempts.where(passed: true).count / attempts.count.to_f) * 100).to_i rescue 0
+  end
+
   def check_initial_data
     begin
       eval initial_data

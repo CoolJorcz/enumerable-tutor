@@ -1,0 +1,29 @@
+<table class="table table-hover">
+<tr>
+  <th>Challenge</th>
+  <th>Attempts</th>
+  <th>Passed</th>
+  <th></th>
+</tr>
+
+<% @challenges.each do |challenge| %>
+
+<tr>
+  <td>
+    <a href="/challenges/<%= challenge.id %>"><%= challenge.name %></a>
+    </td>
+  <td><%= challenge.attempts.count %></td>
+  <td><%= challenge.passed_percentage %> %</td>
+  <td>
+    <a href='/challenges/<%= challenge.id %>/edit' 
+       class="btn btn-primary">Edit
+     </a>
+  </td>
+
+</tr>
+
+<% end %>
+</table>
+
+<a  href='/challenges/new' class="btn btn-primary">Create new challenge</a>
+

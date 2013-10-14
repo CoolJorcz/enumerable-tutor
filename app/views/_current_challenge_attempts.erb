@@ -5,7 +5,7 @@
    
     <!-- time_ago_in_words would be great, need rails for that -->
 
-    <%= CodeRay.scan(attempt.attempt_text, :ruby).div %>
+    <%= CodeRay.scan(attempt.attempt_text, :ruby).div(css: :class) %>
   
   </li>
 
