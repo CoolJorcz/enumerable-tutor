@@ -30,13 +30,20 @@ $(document).ready( function() {
   return ui;
 };
 
-  $("#sortable tbody").sortable({
-    helper: fixHelper,
-    axis: 'y',
-    stop: function(event, ui){
-          var data = $(this).sortable('serialize');
-          $.post('/challenge_order', data);
-          location.reload();
-    }
-  }).disableSelection();
+  $(document).on("click", "#change-order", function(){
+    $("#sortable tbody").sortable({
+      helper: fixHelper,
+    }).disableSelection();
+    
+    $("#change-order").attr("id", "save-order");
+    $("#save-order").text("Save changes"); 
+  
+  });
+
+  $(document).on("click", "#save-order", function(){
+    var data = $("#sortable tbody").sortable('serialize');
+    $.post('/challenge_order', data);
+      location.reload();
+  });
+
 });

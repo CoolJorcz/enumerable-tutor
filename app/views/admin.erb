@@ -6,30 +6,32 @@
       <th>Passed</th>
       <th></th>
     </tr>
-</thead>
+  </thead>
 
-<tbody>
+  <tbody>
 
-<% @challenges.each do |challenge| %>
+  <% @challenges.each do |challenge| %>
 
-<tr id="challenge_order_<%= challenge.challenge_order %>" >
-  <td>
-    <a href="/challenges/<%= challenge.id %>"><%= challenge.name %></a>
-    </td>
-  <td><%= challenge.attempts.count %></td>
-  <td><%= challenge.passed_percentage %> %</td>
-  <td>
-    <a href='/challenges/<%= challenge.id %>/edit' 
-       class="btn btn-primary">Edit
-     </a>
-  </td>
+    <tr id="challenge_order_<%= challenge.challenge_order %>" >
+      <td>
+        <a href="/challenges/<%= challenge.id %>"><%= challenge.name %></a>
+        </td>
+      <td><%= challenge.attempts.count %></td>
+      <td><%= challenge.passed_percentage %> %</td>
+      <td>
+        <a href='/challenges/<%= challenge.id %>/edit' 
+           class="btn btn-primary">Edit
+         </a>
+      </td>
 
-</tr>
+    </tr>
 
-<% end %>
-</tbody>
+  <% end %>
+  </tbody>
 </table>
 
 <a  href='/challenges/new' class="btn btn-primary">Create new challenge</a>
+<a  id="change-order" class="btn btn-primary">Change challenge order</a>
+
 
 
