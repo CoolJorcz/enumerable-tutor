@@ -89,3 +89,19 @@ post '/challenges/:id/edit' do
   
   end
 end
+
+post '/challenge_order' do
+  new_order = params[:challenge_order]
+  Challenge.order(:challenge_order).each do |challenge|
+    challenge.update_attributes(:challenge_order => new_order.index(challenge.challenge_order.to_s)+1)
+  end
+end
+
+
+
+
+
+
+
+
+
