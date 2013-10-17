@@ -12,6 +12,10 @@ class Challenge < ActiveRecord::Base
 
   after_create :init_order
 
+  def expected_output
+    eval read_attribute(:expected_output)
+  end
+  
   def init_order
     self.challenge_order ||=  self.id
     self.save
