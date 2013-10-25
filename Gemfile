@@ -18,6 +18,6 @@ gem 'shotgun'
 gem 'oauth2', '~>0.8.0'
 gem 'omniauth'
 gem 'omniauth-oauth2'
-gem 'omniauth-dbc'
+gem 'omniauth-dbc', :git => 'https://github.com/Devbootcamp/omniauth-dbc.git'
 gem 'json'
 

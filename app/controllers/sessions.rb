@@ -8,6 +8,17 @@ get '/sign_in' do
   redirect to ('/auth/dbc')
 end
 
+get '/test_login' do
+  erb :login_form
+end
+
+post '/test_login' do
+  @user = User.find_by_email(params[:email])
+  session[:user_id] = @user.id
+  session[:user_attributes] = @user.attributes
+  redirect to '/'
+end
+
 get '/auth/:provider/callback' do
   user_attributes = request.env['omniauth.auth'].info
   puts user_attributes

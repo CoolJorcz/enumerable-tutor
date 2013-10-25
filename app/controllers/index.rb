@@ -1,5 +1,9 @@
 get '/' do
-  redirect to '/challenges/1'
+  if authenticated?
+    redirect to '/challenges/1'
+  else
+    erb :index
+  end
 end
 
 

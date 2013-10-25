@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/Devbootcamp/omniauth-dbc.git
+  revision: 75899feab1e6cdfb3197f57e5139689f1b5b2050
+  specs:
+    omniauth-dbc (1.0.0)
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -40,9 +48,6 @@ GEM
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
       rack
-    omniauth-dbc (1.0.0)
-      omniauth (~> 1.0)
-      omniauth-oauth2 (~> 1.1)
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
@@ -83,7 +88,7 @@ DEPENDENCIES
   nokogiri
   oauth2 (~> 0.8.0)
   omniauth
-  omniauth-dbc
+  omniauth-dbc!
   omniauth-oauth2
   pg
   rake
