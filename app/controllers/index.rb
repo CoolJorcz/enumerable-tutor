@@ -1,9 +1,6 @@
 get '/' do
-  if authenticated?
+  p session
     redirect to '/challenges/1'
-  else
-    erb :index
-  end
 end
 
 
