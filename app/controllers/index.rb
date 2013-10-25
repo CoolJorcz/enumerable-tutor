@@ -37,7 +37,9 @@ end
 
 post '/challenges' do
   @challenge = Challenge.create(params[:challenge])
-  @challenge.hint = Hint.create(method: params[:method]) unless params[:method].blank?
+  unless params[:method].blank?
+    @challenge.hint = Hint.where(method: params[:method]).first_or_create
+  end
   
   if @challenge.valid?
   
