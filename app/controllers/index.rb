@@ -1,6 +1,9 @@
 get '/' do
-  p session
+  if authenticated?
     redirect to '/challenges/1'
+  else
+    erb :welcome
+  end
 end
 
 
