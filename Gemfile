@@ -20,9 +20,4 @@ gem 'omniauth'
 gem 'omniauth-oauth2'
 gem 'omniauth-dbc'
 gem 'json'
-gem 'pry'
 
-group :test do
-  gem 'faker'
-  gem 'rspec'
-end
