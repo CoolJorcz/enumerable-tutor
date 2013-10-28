@@ -12,7 +12,9 @@ class Challenge < ActiveRecord::Base
 
   after_create :init_order
 
-  serialize :expected_output
+  def eval_expected_output
+    eval expected_output
+  end
   
   def init_order
     self.challenge_order ||=  self.id
@@ -33,7 +35,7 @@ class Challenge < ActiveRecord::Base
 
   def check_expected_output
     begin
-      eval expected_output
+      eval_expected_output
     rescue Exception => e
       errors.add(:expected_output, "doesn't evaluate to a ruby object")
     end

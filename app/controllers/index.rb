@@ -60,7 +60,7 @@ post'/challenges/:id' do
   
   @user_output = evaluate(params[:answer])
   @attempt = Attempt.create(attempt_text: params[:answer], 
-                            passed: @user_output == @current_challenge.expected_output)
+                            passed: @user_output == @current_challenge.eval_expected_output)
 
 
   current_user.attempts << @attempt
